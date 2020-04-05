@@ -64,6 +64,10 @@
   width: 191px;
   margin: 4px 0;
 }
+#personal li.eMail{
+  width: 200px;
+  margin: 4px 0 4px -4px;
+}
 #personal .myphoto{
   display: block;
 height: 108px;
