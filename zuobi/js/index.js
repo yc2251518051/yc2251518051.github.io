@@ -38,7 +38,7 @@ var timer =null;
 function autoPlay(){
  timer=setInterval(function(){
    $right.click();
- },1000);
+ },10000);
 }
 autoPlay();
 // 鼠标划入暂停播放
