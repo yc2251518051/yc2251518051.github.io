@@ -1,0 +1,128 @@
+@import'reset.css';
+
+h1{
+  text-align: center;
+  line-height:50px;
+  margin:20px auto;
+}
+.wrapper{
+width:900px;
+height:1250px;
+margin:20px auto;
+background-color: #fff;
+border:20px solid #fff;
+}
+.wrapper h2{
+  height:50px;
+  font-size: 43px;
+  font-family: '宋体';
+  line-height: 50px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+.wrapper .header{
+  margin:5px auto;
+  width:900px;
+  height:20px;
+}
+.wrapper .content{
+  margin-top:10px;
+  margin-left: 30px;
+  width:843px;
+  height:1050px;
+}
+.wrapper .leftContent{
+  line-height: 1048px;
+  text-align: right;
+  width:420px;
+  height:1048px;
+  float:left;
+  border: 1px solid black;
+  border-style:solid dotted solid solid;
+  overflow: hidden;
+}.wrapper .rightContent{
+  width:420px;
+  height:870px;
+  float:right;
+  border: 1px solid black;
+  border-style:solid solid none none;
+  overflow: hidden;
+}
+
+.small{
+  width:30px;
+}
+.middle{
+  width:80px;
+}
+.big{
+  width:130px;
+}
+.fullButton{
+  width:100px;
+  height:100px;
+  text-align: center;
+  line-height: 100px;
+  font-size: 20px;
+  border: none;
+}
+
+.cutPic{
+  width:100px;
+  display: block;
+  height:100px;
+  font-size: 20px;
+  background-color: rgb(240,240,240);
+  text-align: center;
+  line-height: 100px;
+
+}
+
+
+.wrapper .content .pingyu{
+  width:420px;
+  height:177px;
+  border:1px dashed black;
+  border-style:solid solid solid none;
+float:right;}
+.wrapper .content .pingyu .score{
+  margin-top: 60px;
+  width:148px;
+  height:116px;
+  border:1px dashed black;
+  border-style:dotted none none dotted;
+float:right;}
+.wrapper .content .pingyu .score span{
+  margin-left: 15px;
+}
+.wrapper #footer{
+  margin-left: 40px;
+  width:820px;
+  height:20px;
+  margin-top:50px;
+}
+.wrapper .leftFooter{
+  float:left;
+}
+.wrapper .rightFooter{
+  float:right;
+}
+
+#nav{
+  width:100px;
+  height:200px;
+  position:fixed;
+  right:0px;
+  top:200px;
+}
+.addButton{
+  width:100px;
+  height:100px;
+  display:none;
+}
+.subButton{
+  width:100px;
+  height:100px;
+  display:none;
+}
