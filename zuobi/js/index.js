@@ -38,7 +38,11 @@ var timer =null;
 function autoPlay(){
  timer=setInterval(function(){
    $right.click();
+<<<<<<< HEAD
  },5000);
+=======
+ },10000);
+>>>>>>> c128d034cc88593fb429957cd33ef9d09c537bcf
 }
 autoPlay();
 // 鼠标划入暂停播放
