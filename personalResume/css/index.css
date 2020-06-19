@@ -65,7 +65,8 @@
   margin: 4px 0;
 }
 #personal .myphoto{
-  display: block;
+  /* display: block; */
+  display: none;
 height: 108px;
 border-radius: 50%;
 position: absolute;
