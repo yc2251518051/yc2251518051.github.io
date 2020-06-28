@@ -1,0 +1,117 @@
+@import'reset.css';
+.content{
+  width: 640px;
+  height: 640px;
+  margin:100px auto;
+  position: relative;
+}
+.btn{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 2;
+}
+.btn button{
+  background: none;
+  border: none;
+  background-size:100% 100%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 30px;
+  color:#fff;
+  cursor: pointer;
+  outline: none;
+}
+.startBtn button{  
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 200px;
+  height: 80px;
+  background-image:radial-gradient(ellipse,#9bcfff,#4683ea);
+  border-radius: 30px;
+  margin-left: -100px;
+  margin-top: -40px;
+}
+.pauseBtn{
+  display: none;
+}
+.pauseBtn button{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-image:radial-gradient(ellipse,#9bcfff,#4683ea);
+  border-radius: 30px;
+  margin-left: -50px;
+  margin-top:  -50px;
+}
+.speedControl{
+  text-align: center;
+  line-height: 80px;
+  font-size: 30px;
+  color:#fff;
+  width: 200px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  border-radius: 30px;
+  margin-left: -100px;
+  margin-top: -40px;
+  background-image:radial-gradient(ellipse,#9bcfff,#4683ea);
+}
+.speedControl span{
+  display: block;
+  width: 140px;
+  height: 80px;
+  overflow: hidden;
+}
+.speedControl .speedOn {
+  border:none;
+  width: 30px;
+  height: 80px;
+  font-size: 30px;
+  color: #fff;
+  background: rgba(0,0,0,0);
+cursor: pointer;
+border-top-right-radius: 30px;
+border-bottom-right-radius: 30px;
+}
+.speedControl .speedDown {
+  border:none;
+  width: 30px;
+  height: 80px;
+  font-size: 30px;
+  color: #fff;
+  background: rgba(0,0,0,0);
+  cursor: pointer;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+#snakeWrap{
+  width: 600px;
+  height: 600px;
+  background: #225675;
+  border: 20px solid #7dd9ff;
+  position: relative;
+}
+.snakeHead{
+  background-image:url(../images/snakeHead.jfif) ;
+  border-radius:50%;
+  background-size: cover;
+}
+.snakeBody{
+  background-color: #9ddbb1;
+  border-radius:50%;
+}
+.food{
+  background-image: url(../images/food.jpg);
+  border-radius:50%;
+  background-size: cover;
+}
