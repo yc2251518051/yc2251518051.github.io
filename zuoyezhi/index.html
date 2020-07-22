@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作业纸</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <h1>东油作业纸</h1>      
+  <div class="wrapper">
+    <h2>&#8194;东北石油大学学生作业纸</h2>
+    <div class="header">
+      <span>课程名称</span>
+      <input type="text" class ="middle">
+      <span>20</span><input type="text" class ="small">
+      <span>至20</span><input type="text"class ="small">
+      <span>学年度第</span><input type="text"class ="small">
+      <span>学期 </span><strong>班级</strong><input type="text" class ="middle">
+      <strong>姓名</strong><input type="text">
+      <strong>学号</strong><input type="text" class ="big">
+    </div>
+    <div class="content">
+      <div class="rightContent">
+        <img class = "rightPic" >
+      </div>
+      <div class="leftContent">
+        <img class = "leftPic" >
+
+      </div>
+      <div class="pingyu">
+        <span>评语：</span>
+        <div class="score"><span>成绩：</span></div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="leftFooter">
+        <span>共</span><input type="text">
+        <span>页第</span><input type="text">
+        <span>页 </span>
+        <strong>任课教师</strong><input type="text">
+      </div>
+      <div class="rightFooter">
+        <span>批改日期</span><input type="text">
+        <span>年</span><input type="text">
+        <span>月</span><input type="text">
+        <span>日</span>
+      </div>
+
+    </div>
+  </div>
+  <div id="nav">
+    <Button class="fullButton">添加内容</Button>
+    <a class="cutPic"">点此截图</a>
+    <button class="addButton">添加作业纸</button>
+    <button class="subButton">删除作业纸<br>(最后一张)</button>
+    <input type='file' name="doc" id="doc" onchange="javascript:setImagePreview();" hidden />
+  </div>
+    <script src="html2canvas.min.js"></script>
+  <!-- <script src="html2canvas.js"></script> -->
+  <!-- <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script> -->
+  <script src="js/index.js"></script>
+
+
+
+</body>
+
+</html>

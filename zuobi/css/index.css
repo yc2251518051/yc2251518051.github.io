@@ -1,0 +1,84 @@
+@import'../css/reset.css';
+
+div#carousel{
+  width:520px;
+  height: 600px;
+  position: relative;
+  left:50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+#pics{
+  width: 1400%;
+position: absolute;
+left:0;
+}
+div ul li{
+  float: left;
+}
+li,a,img{
+  width:520px;
+  height: 600px;
+}
+#carousel:hover div.left{
+  display: block;
+}
+#carousel:hover div.right{
+  display: block;
+}
+div.left{
+  width: 20px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color:rgba(255, 255,255, 0.4) ;
+position: absolute;
+transform: translateY(-50%);
+top:50%;
+left: 0;
+color: #fff;
+cursor: pointer;
+border-top-right-radius:15px ;
+border-bottom-right-radius:15px ;
+display: none;
+}
+div.right{
+  width: 20px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color:rgba(255, 255,255, 0.4) ;
+position: absolute;
+top:50%;
+transform: translateY(-50%);
+right: 0;
+color: #fff;
+cursor: pointer;
+border-top-left-radius:15px ;
+border-bottom-left-radius:15px ;
+display: none;
+}
+.circle{
+  width:70px;
+  height: 13px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  left:50%;
+  transform: translateX(-50%);
+}
+.circle span{
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+float: left;
+/* padding-top: 8px; */
+margin: 3px;
+cursor:pointer;
+}
+ .circle .active{
+  background-color: #ff5000;
+}
