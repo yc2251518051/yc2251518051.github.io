@@ -8,6 +8,9 @@
       url('../font-face/iconfont.ttf') format('truetype'),
       url('../font-face/iconfont.svg#iconfont') format('svg');
 }
+body{
+  background: #f1f1f1;
+}
 .iconfont {
   font-family: "iconfont" !important;
   font-size: 16px;
@@ -17,11 +20,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 #resume{
-  width: 641px;
-  height:840px;
+  width: 580px;
+  /* height:840px; */
   margin-top: 20px;
   margin-bottom: 20px;
-  /* border:1px solid red; */
+  border:1px solid #efefef;
 }
 #title{
   height:72px;
@@ -31,12 +34,12 @@
   display: inline-block;
   width:240px;
   height:20px;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   line-height: 20px;
   color: #fff;
   margin-top: 40px;
-  margin-left: 40px;
+  /* margin-left: 40px; */
 
 }
 #personal{
@@ -89,6 +92,10 @@ border-radius: 50%;
 text-align: center;
 background: #fff;
 border:1px solid rgb(118, 163, 182);
+}
+span i{
+  display: block;
+  margin-top:-1px;
 }
 h3{
 position: absolute;
