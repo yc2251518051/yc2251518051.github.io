@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style scoped>
 .recommend{
   display: flex;
   justify-content: center;

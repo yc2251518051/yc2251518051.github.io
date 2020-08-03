@@ -25,7 +25,7 @@ export default {
 };
 </script>
 
-<style scope>
+<style scoped>
 .swiperItem {
   float: left;
   width:25%;

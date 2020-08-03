@@ -135,10 +135,10 @@ export default {
 };
 </script>
 
-<style scope>
+<style scoped>
 div {
   padding: 0;
-  margin: 0;
+  margin: 0;  
 }
 .swiper {
   width: 100%;
