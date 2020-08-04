@@ -31,6 +31,7 @@ export default {
   methods:{
     itemClick(i){
       this.activeIndex = i;
+      this.$emit('tabClick',i)
     }
   }
 };

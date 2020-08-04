@@ -3,11 +3,18 @@
     <navBar class="navBar">
       <div slot="center">购物街</div>
     </navBar>
-    <swiper :banners=banners style = "marginTop:44px;">
+    <swiper
+      :banners=banners
+      style="marginTop:44px;"
+    >
     </swiper>
     <recommend :recommends="recommend"></recommend>
     <feature></feature>
-    <tabControl :titles=tabControl></tabControl>
+    <tabControl
+      :titles=tabControl
+      @tabClick="tabClick"
+    ></tabControl>
+    <goodsList :goodsList="this.goods[currentGoods].list"></goodsList>
     <ul>
       <li>1</li>
       <li>2</li>
@@ -111,24 +118,31 @@
       <li>100</li>
     </ul>
   </div>
-  
+
 </template>
 <script>
 import navBar from "@/components/common/navbar/navBar";
 import swiper from "@/components/common/swiper/swiper";
-import tabControl from "@/components/common/tabControl/tabControl"
+import tabControl from "@/components/common/tabControl/tabControl";
 
 import recommend from "@/components/content/home/HomeRecommendViews";
-import feature from "@/components/content/home/HomeFeatureView"
+import feature from "@/components/content/home/HomeFeatureView";
+import goodsList from "@/components/content/home/GoodsList/goodsList";
 
-import { getHomeMultidata } from "@/network/home.js";
+import { getHomeMultidata, getHomeGoods } from "@/network/home.js";
 export default {
   name: "home",
   data() {
     return {
       banners: [],
-      recommend:[],
-      tabControl:["流行","精品","新款"]
+      recommend: [],
+      tabControl: ["流行", "精品", "新款"],
+      goods: {
+        pop: { page: 1, list: [] },
+        sell: { page: 1, list: [] },
+        new: { page: 1, list: [] }
+      },
+      currentGoods: "pop"
     };
   },
   components: {
@@ -136,15 +150,50 @@ export default {
     swiper,
     tabControl,
     recommend,
-    feature
+    feature,
+    goodsList
+  },
+  methods: {
+    // 网络请求相关
+    getHomeMultidata() {
+      getHomeMultidata().then(res => {
+        // console.log(res);
+        this.recommend = res.data.recommend.list;
+        this.banners = res.data.banner.list;
+      });
+    },
+    getHomeGoods(type) {
+      getHomeGoods(type, this.goods[type].page).then(res => {
+        this.goods[type].list.push(...res.data.list);
+        this.goods[type].page += 1;
+        console.log(this.goods);
+        // console.log(res)
+      });
+    },
+    //事件监听相关
+    tabClick(i) {
+      // console.log(i);
+      switch (i) {
+        case 0:
+          this.currentGoods = "pop";
+          break;
+        case 1:
+          this.currentGoods = "sell";
+          break;
+        case 2:
+          this.currentGoods = "new";
+          break;
+      }
+    }
   },
   created() {
     //1.请求多个数据
-    getHomeMultidata().then(res => {
-      console.log(res)
-      this.recommend = res.data.recommend.list;
-      this.banners = res.data.banner.list;
-    });
+    this.getHomeMultidata();
+
+    //2.请求推荐商品前一页
+    this.getHomeGoods("pop");
+    this.getHomeGoods("sell");
+    this.getHomeGoods("new");
   }
 };
 </script>
