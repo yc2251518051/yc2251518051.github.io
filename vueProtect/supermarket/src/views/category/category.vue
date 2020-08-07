@@ -7,7 +7,6 @@
 </template>
 <script>
 import navBar from '@/components/common/navbar/navBar'
-// import navBar from '@/components/common/navbar/navBar'
 export default {
   name: "category",
   components:{

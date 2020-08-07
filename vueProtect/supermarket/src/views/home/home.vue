@@ -3,120 +3,41 @@
     <navBar class="navBar">
       <div slot="center">购物街</div>
     </navBar>
-    <swiper
-      :banners=banners
-      style="marginTop:44px;"
+      <tabControl
+        :titles=tabControl
+        @tabClick="tabClickHigh"
+        v-show="isShowTabControl"
+        class = "tabControlHigh"
+        ref="tabControlHigh"
+      ></tabControl>
+    <scroll
+      @pullingUp="pullingUp"
+      @scroll="contentScroll"
+      ref="scroll"
     >
-    </swiper>
-    <recommend :recommends="recommend"></recommend>
-    <feature></feature>
-    <tabControl
-      :titles=tabControl
-      @tabClick="tabClick"
-    ></tabControl>
-    <goodsList :goodsList="this.goods[currentGoods].list"></goodsList>
-    <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-      <li>5</li>
-      <li>6</li>
-      <li>7</li>
-      <li>8</li>
-      <li>9</li>
-      <li>10</li>
-      <li>11</li>
-      <li>12</li>
-      <li>13</li>
-      <li>14</li>
-      <li>15</li>
-      <li>16</li>
-      <li>17</li>
-      <li>18</li>
-      <li>19</li>
-      <li>20</li>
-      <li>21</li>
-      <li>22</li>
-      <li>23</li>
-      <li>24</li>
-      <li>25</li>
-      <li>26</li>
-      <li>27</li>
-      <li>28</li>
-      <li>29</li>
-      <li>30</li>
-      <li>31</li>
-      <li>32</li>
-      <li>33</li>
-      <li>34</li>
-      <li>35</li>
-      <li>36</li>
-      <li>37</li>
-      <li>38</li>
-      <li>39</li>
-      <li>40</li>
-      <li>41</li>
-      <li>42</li>
-      <li>43</li>
-      <li>44</li>
-      <li>45</li>
-      <li>46</li>
-      <li>47</li>
-      <li>48</li>
-      <li>49</li>
-      <li>50</li>
-      <li>51</li>
-      <li>52</li>
-      <li>53</li>
-      <li>54</li>
-      <li>55</li>
-      <li>56</li>
-      <li>57</li>
-      <li>58</li>
-      <li>59</li>
-      <li>60</li>
-      <li>61</li>
-      <li>62</li>
-      <li>63</li>
-      <li>64</li>
-      <li>65</li>
-      <li>66</li>
-      <li>67</li>
-      <li>68</li>
-      <li>69</li>
-      <li>70</li>
-      <li>71</li>
-      <li>72</li>
-      <li>73</li>
-      <li>74</li>
-      <li>75</li>
-      <li>76</li>
-      <li>77</li>
-      <li>78</li>
-      <li>79</li>
-      <li>80</li>
-      <li>81</li>
-      <li>82</li>
-      <li>83</li>
-      <li>84</li>
-      <li>85</li>
-      <li>86</li>
-      <li>87</li>
-      <li>88</li>
-      <li>89</li>
-      <li>90</li>
-      <li>91</li>
-      <li>92</li>
-      <li>93</li>
-      <li>94</li>
-      <li>95</li>
-      <li>96</li>
-      <li>97</li>
-      <li>98</li>
-      <li>99</li>
-      <li>100</li>
-    </ul>
+      <swiper
+        :banners=banners
+        style="marginTop:44px;"
+      >
+      </swiper>
+      <recommend :recommends="recommend"></recommend>
+      <feature></feature>
+      <tabControl
+        :titles=tabControl
+        @tabClick="tabClickLow"
+        ref="tabControlLow"
+      ></tabControl>
+      <goodsList :goodsList="this.goods[currentGoods].list"></goodsList>
+    </scroll>
+    <backTop
+      @click.native="backTop"
+      v-show="isShowBackTop"
+    >
+      <img
+        src="@/assets/images/home/top.png"
+        alt=""
+      >
+    </backTop>
   </div>
 
 </template>
@@ -124,10 +45,12 @@
 import navBar from "@/components/common/navbar/navBar";
 import swiper from "@/components/common/swiper/swiper";
 import tabControl from "@/components/common/tabControl/tabControl";
+import scroll from "@/components/common/scroll/scroll";
 
 import recommend from "@/components/content/home/HomeRecommendViews";
 import feature from "@/components/content/home/HomeFeatureView";
 import goodsList from "@/components/content/home/GoodsList/goodsList";
+import backTop from "@/components/content/home/backTop/backTop";
 
 import { getHomeMultidata, getHomeGoods } from "@/network/home.js";
 export default {
@@ -135,29 +58,33 @@ export default {
   data() {
     return {
       banners: [],
+      tabControlPositionY:567,
       recommend: [],
       tabControl: ["流行", "精品", "新款"],
       goods: {
-        pop: { page: 1, list: [] },
-        sell: { page: 1, list: [] },
-        new: { page: 1, list: [] }
+        pop: { page: 1, list: [],positionY:-611 },
+        sell: { page: 1, list: [],positionY:-611  },
+        new: { page: 1, list: [],positionY:-611  }
       },
-      currentGoods: "pop"
+      currentGoods: "pop",
+      isShowBackTop: false,
+      isShowTabControl: false
     };
   },
   components: {
     navBar,
     swiper,
+    scroll,
     tabControl,
     recommend,
     feature,
-    goodsList
+    goodsList,
+    backTop
   },
   methods: {
     // 网络请求相关
     getHomeMultidata() {
       getHomeMultidata().then(res => {
-        // console.log(res);
         this.recommend = res.data.recommend.list;
         this.banners = res.data.banner.list;
       });
@@ -166,13 +93,10 @@ export default {
       getHomeGoods(type, this.goods[type].page).then(res => {
         this.goods[type].list.push(...res.data.list);
         this.goods[type].page += 1;
-        console.log(this.goods);
-        // console.log(res)
       });
     },
     //事件监听相关
-    tabClick(i) {
-      // console.log(i);
+    tabClickHigh(i) {
       switch (i) {
         case 0:
           this.currentGoods = "pop";
@@ -184,6 +108,48 @@ export default {
           this.currentGoods = "new";
           break;
       }
+      this.$refs.tabControlLow.activeIndex = i;
+      //点击其他选项时将scroll滑向上一次浏览的位置
+      this.$refs.scroll.scrollTo(0, this.goods[this.currentGoods].positionY);
+    },
+    tabClickLow(i) {
+      switch (i) {
+        case 0:
+          this.currentGoods = "pop";
+          break;
+        case 1:
+          this.currentGoods = "sell";
+          break;
+        case 2:
+          this.currentGoods = "new";
+          break;
+      }
+      this.$refs.tabControlHigh.activeIndex = i;
+    },
+    //下拉加载更多
+    pullingUp() {
+      this.getHomeGoods(this.currentGoods);
+    },
+    //返回顶部
+    backTop() {
+      this.$refs.scroll.scrollTo(0, -44);
+    },
+    //监听滚动位置
+    contentScroll(position) {
+      //帮助记忆当前选项滑到哪里，方便回到当前选项时复原scroll
+      this.goods[this.currentGoods].positionY= position.y;
+      //滚动距离超过1000，BackTop按钮显现
+      this.isShowBackTop = -position.y > 1000;
+      //滚动距离超过    ，tabControl吸顶
+      this.isShowTabControl = -position.y > this.tabControlPositionY;
+      // this.isShowTabControl = -position.y > 567;
+    },
+    //swiper组件加载完成 获取tabControl的位置，每次updated时调用
+    tabControlUpdated(){
+      this.tabControlPositionY = this.$refs.tabControlLow.$el.offsetTop
+      // this.goods['pop'].positionY= -this.$refs.tabControlLow.$el.offsetTop;
+      // this.goods['sell'].positionY= -this.$refs.tabControlLow.$el.offsetTop;
+      // this.goods['new'].positionY= -this.$refs.tabControlLow.$el.offsetTop;
     }
   },
   created() {
@@ -194,13 +160,25 @@ export default {
     this.getHomeGoods("pop");
     this.getHomeGoods("sell");
     this.getHomeGoods("new");
+  },
+  updated(){
+    this.tabControlUpdated();
   }
 };
 </script>
 <style scoped>
+#home {
+  position: relative;
+  height: 100vh;
+}
 .navBar {
   background: #ff8198;
   color: #fff;
   font-weight: bold;
+  z-index: 9;
+}
+.tabControlHigh{
+  position:relative;
+  z-index: 9;
 }
 </style>

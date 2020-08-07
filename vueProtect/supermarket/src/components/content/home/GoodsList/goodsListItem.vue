@@ -4,6 +4,7 @@
       <img
         :src="goods.show.img"
         alt=""
+        @load="imgLoad"
       >
       <div class="goodsInfo">
         <p>{{goods.title}}</p>
@@ -25,6 +26,12 @@ export default {
       type: Object,
       required: true
     }
+  },
+  methods:{
+    imgLoad(){
+      //利用事件总线发射事件，并在scroll处进行监听，图片加载完进行scroll的高度刷新
+      this.$bus.$emit('imgLoad');
+    }
   }
 };
 </script>
@@ -33,6 +40,7 @@ export default {
 .goodsListItem {
   width: 48%;
   font-size: 12px;
+  text-align: center;
   /* position:relative; */
 }
 .goodsListItem img {

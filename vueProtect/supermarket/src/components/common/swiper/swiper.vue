@@ -25,6 +25,11 @@
             :src="item.image"
             alt=""
           >
+          <!-- <img
+            :src="item.image"
+            alt=""
+            @load="finishImg"
+          > -->
         </a></swiperItem>
     </div>
     <div class="swiperIndicator">
@@ -63,6 +68,7 @@ export default {
       index: 0, //当前显示的图片索引值
       timer: null,
       swiperBanners: this.banners,
+      isFinishImg:false,
       // scrolling: false //当前是否滚动
     };
   },
@@ -127,7 +133,13 @@ export default {
 
       // 3.移动完成后重新开启定时器
       this.autoStart();
-    }
+    },
+    // finishImg(){
+    //   // if(!this.isFinishImg){
+    //   this.$emit('finishImg');
+    //   // this.isFinishImg=true
+    //   // }
+    // }
   },
   mounted() {
     this.autoStart();
