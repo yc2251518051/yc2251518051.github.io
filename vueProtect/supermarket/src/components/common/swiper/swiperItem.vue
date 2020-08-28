@@ -1,8 +1,11 @@
 <template>
+  <!-- <div
+    class="swiperItem"
+  > -->
   <div
     class="swiperItem"
     :style="{
-      width:1/banners.length*100 + '%'
+      width:1/bannersNum*100 + '%'
     }"
   >
     <slot></slot>
@@ -13,8 +16,8 @@
 export default {
   name: "swiperItem",
   props: {
-    banners: {
-      type: Array,
+    bannersNum: {
+      type: Number,
       required: true
     }
   },

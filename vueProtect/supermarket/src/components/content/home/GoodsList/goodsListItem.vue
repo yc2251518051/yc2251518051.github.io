@@ -1,17 +1,24 @@
 <template>
-  <div class="goodsListItem">
-    <a :href="goods.link">
-      <img
-        :src="goods.show.img"
-        alt=""
-        @load="imgLoad"
-      >
+  <div 
+  class="goodsListItem" 
+  @click = "itemClick" >
+    <!-- <a :href="goods.link"> -->
+        <img
+          :src="goods.image || goods.show.img"
+          alt=""
+          @load="imgLoad"
+        >
+        <!-- <img
+          :src="getImg"
+          alt=""
+          @load="imgLoad"
+        > -->
       <div class="goodsInfo">
         <p>{{goods.title}}</p>
         <span class="price">{{'￥' + goods.price}}</span>
         <span class="collect">{{goods.cfav}}</span>
       </div>
-    </a>
+    <!-- </a> -->
   </div>
 </template>
 
@@ -28,11 +35,31 @@ export default {
     }
   },
   methods:{
-    imgLoad(){
+    imgLoad: function(){
       //利用事件总线发射事件，并在scroll处进行监听，图片加载完进行scroll的高度刷新
       this.$bus.$emit('imgLoad');
+    },
+    itemClick(){
+      // console.log(this.goods.iid);
+      this.$router.push({
+        path:'/detail',
+        query:{
+          iid: this.goods.iid
+        }
+      });
     }
-  }
+  },
+  // computed:{
+  //   getImg:{
+  //     // return goods.show.img || goods.image
+  //     get:function(){
+  //       return this.goods.show.img || this.goods.image
+  //       },
+  //     set:function(){
+  //       console.log('爱你哦')
+  //     }
+  //   }
+  // }
 };
 </script>
 

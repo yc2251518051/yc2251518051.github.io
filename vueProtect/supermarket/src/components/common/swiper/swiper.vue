@@ -12,29 +12,15 @@
       class="swiperWraper"
       ref="swiperWrapper"
       :style="{
-      width:banners.length*100 + '%',
+      width:bannersNum*100 + '%',
       marginLeft:-100*index + '%',
       }"
     >
-      <swiperItem
-        v-for="(item,i) in banners"
-        :key="i"
-        :banners=swiperBanners
-      ><a :href="item.link">
-          <img
-            :src="item.image"
-            alt=""
-          >
-          <!-- <img
-            :src="item.image"
-            alt=""
-            @load="finishImg"
-          > -->
-        </a></swiperItem>
+    <slot></slot>
     </div>
     <div class="swiperIndicator">
       <div
-        v-for="(item,i) in banners"
+        v-for="(item,i) in bannersNum"
         :key="i"
         :class="{
         active: index === i
@@ -50,8 +36,8 @@ import swiperItem from "./swiperItem";
 export default {
   name: "swiper",
   props: {
-    banners: {
-      type: Array,
+    bannersNum: {
+      type: Number,
       required: true
     },
     scrollSpeed:{
@@ -76,9 +62,12 @@ export default {
     swiperItem
   },
   methods: {
+    // finishImg(){
+    //   this.$emit('finishImg')
+    // },
     autoStart() {
       this.timer = setInterval(() => {
-        this.index = (this.index + 1) % this.banners.length;
+        this.index = (this.index + 1) % this.bannersNum;
       },this.scrollSpeed);
     },
 
@@ -120,11 +109,11 @@ export default {
         // this.scrolling = true;
         // 右边移动超过0.5
         this.index =
-          (this.index + this.banners.length - 1) % this.banners.length;
+          (this.index + this.bannersNum - 1) % this.bannersNum;
         // this.scrolling = false;
       } else if (this.distance < 0 && currentMove > this.moveRadio) {
         // 向左移动超过0.5
-        this.index = (this.index + 1) % this.banners.length;
+        this.index = (this.index + 1) % this.bannersNum;
       } else {
         // this.scrolling = true;
         this.$refs.swiperWrapper.style.marginLeft = this.index * -100 + "%";
@@ -169,7 +158,7 @@ div {
   position: absolute;
   height: 13px;
   border-radius: 10px;
-  width: 20%;
+  /* width: 20%; */
   bottom: 1%;
   left: 50%;
   transform: translateX(-50%);

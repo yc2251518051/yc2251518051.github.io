@@ -5,7 +5,7 @@
     </navBar>
       <tabControl
         :titles=tabControl
-        @tabClick="tabClickHigh"
+        @tabClick="tabClickLow"
         v-show="isShowTabControl"
         class = "tabControlHigh"
         ref="tabControlHigh"
@@ -16,9 +16,14 @@
       ref="scroll"
     >
       <swiper
-        :banners=banners
+        :bannersNum=banners.length
         style="marginTop:44px;"
       >
+      <swiperItem v-for = "(item,i) in banners" :key = "i" :bannersNum=banners.length>
+        <a :href="item.link">
+          <img :src="item.image" alt="">
+        </a>
+      </swiperItem>
       </swiper>
       <recommend :recommends="recommend"></recommend>
       <feature></feature>
@@ -44,6 +49,7 @@
 <script>
 import navBar from "@/components/common/navbar/navBar";
 import swiper from "@/components/common/swiper/swiper";
+import swiperItem from "@/components/common/swiper/swiperItem";
 import tabControl from "@/components/common/tabControl/tabControl";
 import scroll from "@/components/common/scroll/scroll";
 
@@ -58,7 +64,6 @@ export default {
   data() {
     return {
       banners: [],
-      tabControlPositionY:567,
       recommend: [],
       tabControl: ["流行", "精品", "新款"],
       goods: {
@@ -68,12 +73,16 @@ export default {
       },
       currentGoods: "pop",
       isShowBackTop: false,
-      isShowTabControl: false
+      isShowTabControl: false,
+      saveY:-44
+      // isLoadHomeMultidata: false,
+      // isLoadSwipper: false
     };
   },
   components: {
     navBar,
     swiper,
+    swiperItem,
     scroll,
     tabControl,
     recommend,
@@ -109,8 +118,9 @@ export default {
           break;
       }
       this.$refs.tabControlLow.activeIndex = i;
+      // console.log(this.goods[this.currentGoods].positionY)
       //点击其他选项时将scroll滑向上一次浏览的位置
-      this.$refs.scroll.scrollTo(0, this.goods[this.currentGoods].positionY);
+      this.$refs.scroll.bscroll.scrollTo(0, this.goods[this.currentGoods].positionY,0);
     },
     tabClickLow(i) {
       switch (i) {
@@ -138,18 +148,12 @@ export default {
     contentScroll(position) {
       //帮助记忆当前选项滑到哪里，方便回到当前选项时复原scroll
       this.goods[this.currentGoods].positionY= position.y;
+
       //滚动距离超过1000，BackTop按钮显现
       this.isShowBackTop = -position.y > 1000;
+
       //滚动距离超过    ，tabControl吸顶
-      this.isShowTabControl = -position.y > this.tabControlPositionY;
-      // this.isShowTabControl = -position.y > 567;
-    },
-    //swiper组件加载完成 获取tabControl的位置，每次updated时调用
-    tabControlUpdated(){
-      this.tabControlPositionY = this.$refs.tabControlLow.$el.offsetTop
-      // this.goods['pop'].positionY= -this.$refs.tabControlLow.$el.offsetTop;
-      // this.goods['sell'].positionY= -this.$refs.tabControlLow.$el.offsetTop;
-      // this.goods['new'].positionY= -this.$refs.tabControlLow.$el.offsetTop;
+      this.isShowTabControl = -position.y > 611;
     }
   },
   created() {
@@ -161,9 +165,15 @@ export default {
     this.getHomeGoods("sell");
     this.getHomeGoods("new");
   },
-  updated(){
-    this.tabControlUpdated();
-  }
+  activated(){
+    //当首页重新活跃时，回到之前保存的位置
+    this.$refs.scroll.bscroll.scrollTo(0,this.saveY,0);
+    this.$refs.scroll.bscroll.refresh();
+  },
+  deactivated(){
+    //当首页不活跃时，对当前滑动到的位置进行保存
+    this.saveY = this.$refs.scroll.bscroll.y;
+  },
 };
 </script>
 <style scoped>

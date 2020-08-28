@@ -35,6 +35,7 @@ export default {
 }
 .center{
   flex:1;
+  overflow: hidden;
   /* background:blue; */
 }
 </style>

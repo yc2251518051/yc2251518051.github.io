@@ -32,7 +32,10 @@ export default {
       pullUpLoad:{
         threshold: 50
       },
-      click:true
+      click:true,
+      mouseWheel: true,//开启鼠标滚轮
+      disableMouse: false,//启用鼠标拖动
+      disableTouch: false//启用手指触摸
     });
 
 
@@ -54,7 +57,7 @@ export default {
     let scrollLoad = debounce(this.refresh,50);
     this.$bus.$on('imgLoad',()=>{
       scrollLoad()
-})
+    })
   }
 }
 </script>
@@ -62,6 +65,7 @@ export default {
 <style scoped>
 .scroll{
   height:calc(100% - 93px);
+  /* height:calc(100% - 44px); */
   position:absolute;
   top:44px;
   bottom:49px;

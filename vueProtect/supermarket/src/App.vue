@@ -12,6 +12,9 @@ export default {
   components: {
     mainTabBar
   }
+  // mounted(){
+    // this.$refs.scroll.bscroll.refresh();
+  // }
 }
 </script>
 

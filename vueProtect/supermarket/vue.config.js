@@ -14,5 +14,9 @@ module.exports = {
       .set('assets', resolve('@/assets'))
       .set('views', resolve('@/views'))
       .set('newtwork', resolve('@/network'))
-  }
+  },
+  devServer: {
+    host: '127.0.0.1',
+    port: 8080,
+  },
 }

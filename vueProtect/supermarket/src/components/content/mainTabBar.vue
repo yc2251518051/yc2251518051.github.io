@@ -1,6 +1,8 @@
 <template>
   <div id="mainTabBar">
-    <router-view></router-view>
+    <keep-alive exclude = "detail">
+      <router-view></router-view>
+    </keep-alive>
     <tabBar>
       <!-- 可以传path即路由默认路径，以及ActiveColor是活跃时的字体颜色 -->
       <tabbarItem path="/home">
