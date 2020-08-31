@@ -16,7 +16,12 @@ module.exports = {
       .set('newtwork', resolve('@/network'))
   },
   devServer: {
-    host: '127.0.0.1',
-    port: 8080,
+    host: '0.0.0.0',
+    port: 8088,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+    hotOnly:false,
+    disableHostCheck: true
   },
 }

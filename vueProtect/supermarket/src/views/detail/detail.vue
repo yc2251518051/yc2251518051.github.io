@@ -133,13 +133,13 @@ export default {
       this.iid = this.$route.query.iid;
     //请求评论信息及商品信息
       getDetailData(this.iid).then(res =>{
-        console.log(res)
+        // console.log(res)
         //获取轮播图数据
         this.topImages = res.result.itemInfo.topImages;
 
         //获取商品描述的信息
         this.decs = new Decs(res.result.itemInfo,res.result.columns,res.result.shopInfo.services)
-        console.log(this.decs)
+        // console.log(this.decs)
 
         //获取商家信息
         this.shopInfo = new Shop(res.result.shopInfo);

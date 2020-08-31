@@ -1,5 +1,9 @@
 <template>
   <div id="cart">
+    <toast 
+    :messages = "this.message"
+    ></toast>
+    <h2 style = "position :relative;top:44px;" v-if = "!$store.state.cartList.length">购物车空空如也~~~~</h2>
     <navBar class="navBar">
       <div slot = "center">购物车({{$store.state.cartList.length}})</div>
     </navBar>
@@ -8,12 +12,15 @@
         <cartListItem v-for = "(item,i) in $store.state.cartList" :key = "i" :itemInfo = "item"></cartListItem>
       </cartList>
     </scroll>
-    <bottomBox></bottomBox>
+    <bottomBox 
+    @goToBuy = "buy"
+    ></bottomBox>
   </div>
 </template>
 <script>
 import scroll from '@/components/common/scroll/scroll'
 import navBar from '@/components/common/navbar/navBar'
+import toast from "@/components/common/toast/toast"
 
 import cartList from '@/views/cart/childComponents/cartList'
 import cartListItem from '@/views/cart/childComponents/cartListItem'
@@ -23,9 +30,20 @@ export default {
   components:{
     scroll,
     navBar,
+    toast,
     cartList,
     cartListItem,
     bottomBox
+  },
+  data(){
+    return {
+      message:''
+    }
+  },
+  methods:{
+    buy(){
+      this.message = "功能完善中.....23333"
+    }
   },
   activated(){
     this.$refs.scroll.bscroll.refresh();

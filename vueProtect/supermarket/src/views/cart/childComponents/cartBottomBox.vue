@@ -3,7 +3,7 @@
     <checkBox class="select-all" @checkBoxClick="checkedAll" :isChecked = "isCheckedAll"></checkBox>
     <span>全选</span>
     <span class="total-price">合计: ¥{{totalPrice}}</span>
-    <span class="buy-product">去计算({{$store.state.cartList.length}})</span>
+    <span class="buy-product"  @click ="goToBuy">去计算({{$store.state.cartList.length}})</span>
   </div>
 </template>
 
@@ -39,7 +39,9 @@ export default {
       }else{
         this.$store.state.cartList.forEach(item => {item.checked = true});
       }
-       
+    },
+    goToBuy(){
+    this.$emit('goToBuy');
     }
 }
 }

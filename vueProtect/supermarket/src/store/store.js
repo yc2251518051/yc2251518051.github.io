@@ -25,7 +25,7 @@ const store = new Vuex.Store({
         resolve('商品数量加一')
       }else{
         context.commit("addCart",info)
-        resolve('添加了新商品')
+        resolve('已添加购物车')
       }
         })
     }
