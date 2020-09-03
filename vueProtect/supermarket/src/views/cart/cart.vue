@@ -7,7 +7,7 @@
     <navBar class="navBar">
       <div slot = "center">购物车({{$store.state.cartList.length}})</div>
     </navBar>
-    <scroll ref = "scroll">
+    <scroll ref = "scroll" class ="cartScroll">
       <cartList>
         <cartListItem v-for = "(item,i) in $store.state.cartList" :key = "i" :itemInfo = "item"></cartListItem>
       </cartList>
@@ -62,5 +62,8 @@ export default {
 }
 .scroll{
   height:calc(100% - 93px);
+}
+.cartScroll{
+  margin-top:44px;
 }
 </style>

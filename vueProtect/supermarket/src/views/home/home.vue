@@ -14,6 +14,7 @@
       @pullingUp="pullingUp"
       @scroll="contentScroll"
       ref="scroll"
+      class ="homeScroll"
     >
       <swiper
         :bannersNum=banners.length
@@ -74,7 +75,8 @@ export default {
       currentGoods: "pop",
       isShowBackTop: false,
       isShowTabControl: false,
-      saveY:-44
+      saveY:-44,
+      tabOffsetTop:611
       // isLoadHomeMultidata: false,
       // isLoadSwipper: false
     };
@@ -135,6 +137,7 @@ export default {
           break;
       }
       this.$refs.tabControlHigh.activeIndex = i;
+      this.$refs.tabControlLow.activeIndex = i;
     },
     //下拉加载更多
     pullingUp() {
@@ -153,7 +156,7 @@ export default {
       this.isShowBackTop = -position.y > 1000;
 
       //滚动距离超过    ，tabControl吸顶
-      this.isShowTabControl = -position.y > 611;
+      this.isShowTabControl = -position.y > this.tabOffsetTop;
     }
   },
   created() {
@@ -174,6 +177,10 @@ export default {
     //当首页不活跃时，对当前滑动到的位置进行保存
     this.saveY = this.$refs.scroll.bscroll.y;
   },
+  updated(){
+    console.log(this.$refs.tabControlLow.$el.offsetTop)
+    this.tabOffsetTop = this.$refs.tabControlLow.$el.offsetTop + 44;
+  }
 };
 </script>
 <style scoped>
@@ -186,6 +193,9 @@ export default {
   color: #fff;
   font-weight: bold;
   z-index: 9;
+}
+.homeScroll{
+  margin-top:44px;
 }
 .tabControlHigh{
   position:relative;

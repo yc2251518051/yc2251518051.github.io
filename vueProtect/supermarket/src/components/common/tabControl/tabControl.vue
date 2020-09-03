@@ -45,8 +45,6 @@ export default {
   text-align: center;
   font-size: 15px;
   background: #fff;
-  position: sticky;
-  top: 44px;
 }
 .tabControlItem {
   flex: 1;

@@ -65,12 +65,13 @@ export default {
 <style scoped>
 .scroll{
   height:calc(100% - 93px);
+  /* margin-top:44px; */
   /* height:calc(100% - 44px); */
-  position:absolute;
-  top:44px;
-  bottom:49px;
-  left:0px;
-  right:0px;
+  /* position:absolute; */
+  /* top:44px; */
+  /* bottom:49px; */
+  /* left:0px; */
+  /* right:0px; */
   overflow: hidden;
 }
 </style>
