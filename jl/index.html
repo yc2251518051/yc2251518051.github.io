@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="html2canvas.min.js"></script>
+  <title>新简历</title>
+</head>
+
+<body>
+  <div id="wrapper">
+    <header>
+      <div class="title">
+        <!-- <div class="photo"> -->
+          <!-- <img src="./YZC.JPG" alt="我的照片"
+           crossorigin="anonymous"
+           > -->
+          <!-- <img src="./YZC.JPG" alt="我的照片"
+           > -->
+        <!-- </div> -->
+        <div class="personal">
+          <h1>
+            杨志成
+          </h1>
+          <div class="job">
+            WEB前端工程师
+          </div>
+          <div class="desc">
+            <div class="phone">
+              手机：150-4634-0924
+            </div>
+            <span class="email">
+              邮箱：yzc2251518051@163.com
+            </span>
+            <span class="github">
+              GitHub: yc2251518051
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="selfEval">
+      <h2>
+        自我评价
+      </h2>
+      <div class="selfDesc">
+        本人热爱计算机行业，尤其喜欢前端，每一个页面的完成容易让我获得成就感。作为计算机行业从事者，本人还拥有良好的自学能力，也有良好的学习习惯，自己也拥有一个属于自己的网站（githubPage），并不定时更新其中的内容。本人经力旺盛，喜欢轮滑，爬山，跑步，乐意接受加班。
+      </div>
+    </div>
+    <section>
+      <div class="leftContent">
+        <div class="message">
+          <!-- <h2>项目地址</h2>
+          <div>仿淘宝首屏：</div>
+          <div>贪吃蛇： </div>
+          <div>仿蘑菇街： 1.85</div> -->
+          <h2>个人信息</h2>
+          <div>性别：男</div>
+          <div>身高：1.85 </div>
+          <div>年龄：21</div>
+        </div>
+        <div class="education">
+          <h2>教育背景</h2>
+          <div class="schoolDesc">
+            <span class="school">东北石油大学（一本）</span>
+            <span class="profession"> 计算机专业</span>
+          </div>
+          <div class="edcTime"> 教育时间：2017/9/1 - 2021/6.30</div>
+          <div class="edcProfession"> 相关课程： 数据库、数据结构、算法分析</div>
+        </div>
+        <div class="work">
+          <h2>实习经历</h2>
+          <div>实习公司：领壹智慧科技有限公司</div>
+          <div>实习时间：2019/7 - 2019/9</div>
+          <div>实习经历：曾实习于该公司前端部门，负责使用Vue框架及Element UI完成日历功能</div>
+          <div>实习收获：通过该段时间的实习真正认识到了前后端的区别，收获了技能和同事的友谊</div>
+        </div>
+      </div>
+      <div class="rightContent">
+        <div class="keep">
+          <h2>掌握技能</h2>
+          <div class="keeps">
+            <span>掌握Html、CSS，曾对淘宝网首屏进行仿制</span>
+            <span>掌握JavaScript及部分Es6语法</span>
+            <span>掌握Vue框架，使用过Element UI框架</span>
+            <span>掌握Git的使用，熟悉常用指令</span>
+            <span>了解http协议，了解计算机网络</span>
+          </div>
+        </div>
+        <div class="protect">
+          <h2>项目经历</h2>
+          <div class="protectHeader">
+            <span class="protectTitle">
+              项目：仿磨菇街
+            </span>
+            <div class="protectTime">
+              2020/7/26 - 2020/9/4
+            </div>
+          </div>
+          <div class="protectContent">
+            <p>涉及技术：
+              <div>
+                <span class="circle"></span>
+                通过vue-router控制页面跳转
+              </div>
+              <div>
+                <span class="circle"></span>
+                通过vuex进行状态管理（主要保存购物车参数）
+              </div>
+              <div>
+                <span class="circle"></span>
+                通过axios进行向数据端口的网络请求
+              </div>
+              <div>
+                <span class="circle"></span>
+                通过better-scroll进行移动端的滚动适配
+              </div>
+            </p>
+            <p>项目描述：项目分为四个主视图以及一个详情页，主页部分包括轮播图组件，以及部分商品以瀑布流的方式进行展示，点击商品进入详情页，可以看到商品的详情信息，在此可以通过点击加入购物车，在购物车界面进行查看</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body {
+      background: #eee;
+      font-size: 12px;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+
+    #wrapper {
+      /* width: 649px;
+      height: 978px; */
+      width: 595px;
+      height: 842px;
+      background: #fff;
+      margin: 50px auto;
+    }
+
+    header {
+      width: 100%;
+      height: 20%;
+      color: #fff;
+      position: relative;
+      /* text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3); */
+      /* box-shadow: 0 0 0 1px hsla(0,0%,100%,.3) inset, 0.5em 1em rgba(0, 0, 0, 0.6);  */
+      /* filter: blur(1px); */
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      background: rgba(0, 0, 0, .7);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      /* filter: blur(40px); */
+      margin: -30px;
+      z-index: -1;
+    }
+
+    header h1 {
+      font-size: 40px;
+      margin-top: -10px;
+    }
+
+    header .title {
+      padding: 35px;
+    }
+
+    header .title .personal {}
+
+    header .personal .desc {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    header .personal .desc .email {
+      margin-right: 40px;
+    }
+
+    header .job {
+      font-size: 16px;
+    }
+
+    .photo {
+      float: right;
+      background: green;
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+    }
+
+    .photo img {
+      width: 100%;
+      margin-top: -10px;
+    }
+
+    .photo::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+  <style>
+    .selfEval {
+      box-sizing: border-box;
+      width: 90%;
+      margin: 0px auto;
+      height: 16%;
+    }
+
+    .selfEval h2 {
+      margin-top: 20px;
+      padding: 10px;
+    }
+
+    .selfEval .selfDesc {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 10px;
+    }
+  </style>
+  <style>
+    section {
+      box-sizing: border-box;
+      margin: 0px 40px 40px 40px;
+      height: 62%;
+      /* background: red; */
+      /* border: 1px solid red; */
+      display: flex;
+      font-size: 12px;
+    }
+
+    .leftContent {
+      flex: 4;
+      border-right: 1px solid #111;
+      position: relative;
+      padding-right: 10px;
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+
+    .leftContent .education {
+      padding: 10px 0px 10px 0px;
+    }
+
+    .leftContent::before,
+    .leftContent::after {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #111;
+      position: absolute;
+      right: 0px;
+      transform: translateX(50%);
+    }
+
+    .leftContent::after {
+      bottom: 0px;
+    }
+
+    .leftContent .education .school {
+      font-size: 13px;
+      font-weight: bold;
+      float: left;
+    }
+
+    .leftContent .education .schoolDesc::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .leftContent .education .profession {
+      font-size: 13px;
+      font-weight: bold;
+      float: right;
+    }
+
+    .rightContent .keep {
+      padding: 10px;
+    }
+
+    .rightContent .keeps {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .rightContent .keeps span {
+      flex: 1;
+
+    }
+
+    .rightContent {
+      margin-top: 60px;
+      flex: 6;
+    }
+
+    .rightContent .protect {
+      padding: 10px 10px 10px 10px;
+    }
+
+    .rightContent .protect .protectTitle {
+      font-size: 13px;
+      font-weight: bold;
+      float: left;
+    }
+
+    .rightContent .protect .protectTime {
+      font-size: 13px;
+      font-weight: bold;
+      float: right;
+    }
+
+    .rightContent .protect .protectHeader::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .circle {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #000;
+    }
+  </style>
+  <!-- 进行打印操作 -->
+  <script>
+    if(window.confirm('是否对简历进行打印保存？')){
+    var type = 'png'
+    var saveFile = function (data, filename) {
+      var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+      save_link.href = data;
+      save_link.download = filename;
+
+      var event = document.createEvent('MouseEvents');
+      event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+      save_link.dispatchEvent(event);
+    };
+    html2canvas(document.getElementById('wrapper'), {
+      useCORS: true,
+    }).then(canvas => {
+      window.pageYOffset = 0;
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+      let imgUri = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
+      imgData = canvas.toDataURL(type);
+      var filename = '杨志成的个人简历 .' + type;
+      saveFile(imgData, filename);
+    });}else{}
+  </script>
+</body>
+
+</html>
