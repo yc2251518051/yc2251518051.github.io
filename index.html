@@ -6,10 +6,147 @@
   <title>yzc</title>
 </head>
 <body>
-  <h2>欢迎光临</h2>
-  <a target="_blank" href="https://yc2251518051.github.io/snake">贪吃蛇项目</a>
-  <a target="_blank" href="https://yc2251518051.github.io/taobao">仿淘宝首屏项目</a>
-  <a target="_blank" href="https://github.com/yc2251518051/zhicheng/tree/master/vueProtect/supermarket">仿蘑菇街项目</a>
-  <a target="_blank" href="https://yc2251518051.github.io/jl">个人简历</a>
+  <div id="wrapper">
+    <nav>
+      <a href = "#protect">项目展示</a>
+      <a href = "#a1">有待完善</a>
+      <a href = "#a2">有待完善</a>
+    </nav>
+    <section class = "page">
+
+      <section id="protect" name ="protect">
+        <nav>
+          <a target="_blank" href="https://yc2251518051.github.io/snake">贪吃蛇项目</a>
+          <a target="_blank" href="https://yc2251518051.github.io/taobao">仿淘宝首屏项目</a>
+          <a target="_blank" href="https://github.com/yc2251518051/zhicheng/tree/master/vueProtect/supermarket">仿蘑菇街项目</a>
+          <a target="_blank" href="https://yc2251518051.github.io/jl">个人简历</a>
+          <a target="_blank" href="https://me.csdn.net/YZC2251518051">个人博客</a>
+          <a target="_blank" href="https://github.com/yc2251518051">我的github</a></nav>
+      </section>
+      <section id="a1" name ="a1">
+        <ul><li>1个苹果</li>
+      <li>2个苹果</li>
+      <li>3个苹果</li>
+      <li>4个苹果</li>
+      <li>5个苹果</li>
+      <li>6个苹果</li>
+      <li>7个苹果</li>
+      <li>8个苹果</li>
+      <li>9个苹果</li>
+      <li>10个苹果</li>
+      <li>11个苹果</li>
+      <li>12个苹果</li>
+      <li>13个苹果</li>
+      <li>14个苹果</li>
+      <li>15个苹果</li>
+      <li>16个苹果</li>
+      <li>17个苹果</li>
+      <li>18个苹果</li>
+      <li>19个苹果</li>
+      <li>20个苹果</li>
+      <li>21个苹果</li>
+      <li>22个苹果</li>
+      <li>23个苹果</li>
+      <li>24个苹果</li>
+      <li>25个苹果</li>
+      <li>26个苹果</li>
+      <li>27个苹果</li>
+      <li>28个苹果</li>
+      <li>29个苹果</li>
+      <li>30个苹果</li></ul>
+      </section>
+      <section id="a2" name ="a2">
+        <ul>
+          <li>1个梨</li>
+          <li>2个梨</li>
+          <li>3个梨</li>
+          <li>4个梨</li>
+          <li>5个梨</li>
+          <li>6个梨</li>
+          <li>7个梨</li>
+          <li>8个梨</li>
+          <li>9个梨</li>
+          <li>10个梨</li>
+          <li>11个梨</li>
+          <li>12个梨</li>
+          <li>13个梨</li>
+          <li>14个梨</li>
+          <li>15个梨</li>
+          <li>16个梨</li>
+          <li>17个梨</li>
+          <li>18个梨</li>
+          <li>19个梨</li>
+          <li>20个梨</li>
+          <li>21个梨</li>
+          <li>22个梨</li>
+          <li>23个梨</li>
+          <li>24个梨</li>
+          <li>25个梨</li>
+          <li>26个梨</li>
+          <li>27个梨</li>
+          <li>28个梨</li>
+          <li>29个梨</li>
+          <li>30个梨</li>
+        </ul>
+      </section>
+    </section>
+  </div>
 </body>
+<style>
+  *{
+    margin: 0px;
+    padding:0px;
+  }
+  a{
+    text-decoration: none;
+    color: #000;
+  }
+  #wrapper{
+    width:80%;
+    height: 100vh;
+    margin: 0px auto;
+  }
+  #wrapper>nav{
+    /* background: red; */
+    width:100%;
+    height: 44px;
+    display: flex;
+    text-align: center;
+    position: relative;
+  }
+  #wrapper>nav a:hover{
+    background: red;
+  }
+  #wrapper>nav a{
+    flex:1px;
+    outline:1px solid #eee;
+    height:44px;
+    line-height: 44px;
+  }
+  section.page{
+    width:100%;
+    height:calc(100% - 93px);
+    overflow-y: scroll;
+    transition-property: scrollTop;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    transition-delay: 2s;
+  }
+  section#protect{
+    position: relative;
+    width:100%;
+  }
+  section#protect nav{
+    display: flex;
+  }
+  section#protect nav a{
+    flex:1;
+  }
+  section::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height:3000px
+  }
+</style>
 </html>
