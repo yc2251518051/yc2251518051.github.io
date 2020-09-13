@@ -1,0 +1,90 @@
+body,
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+table{
+  /* 边框设置成兼容模式 */
+  border-collapse: collapse;
+}
+tr,td{
+  padding:0;
+}
+
+img {
+  border: none;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: #3c3c3c;
+}
+
+i {
+  font-style: normal;
+}
+
+input,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  outline: none;
+}
+
+body {
+  font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.layer {
+  width: 1190px;
+  margin: 0 auto;
+}
+
+.c4 {
+  color: #f40;
+}
+
+.c5 {
+  color: #f50;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+.mr-7{
+  margin-right: 7px;
+}
+.mr-5{
+  margin-right: 5px;
+}
